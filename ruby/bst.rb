@@ -9,13 +9,13 @@ class Node
 end
 
 class BST
- attr_accessor :root, :values
+  attr_accessor :root, :values
 
   def initialize()
     self.root = nil
     self.values = []
   end
-  
+
   def insert(node, val)
     if node != nil
       if node.data >= val
@@ -28,7 +28,7 @@ class BST
       return Node.new(val)
     end
   end
-  
+
   def inorder(node)
     if node != nil
       self.inorder(node.left)
@@ -36,7 +36,7 @@ class BST
       self.inorder(node.right)
     end
   end
-  
+
   def find_max(node)
     if node == nil
       return nil
@@ -45,16 +45,16 @@ class BST
     end
     return find_max(node.right)
   end  
-  
+
   def find_min(node)
-   if node == nil
-     return nil
-   elsif node.left == nil
-     return node.data
+    if node == nil
+      return nil
+    elsif node.left == nil
+      return node.data
+    end
+    return find_min(node.left)
   end
-   return find_min(node.left)
-  end
-  
+
   def search(node, key)
     if node == nil
       return false
@@ -93,15 +93,15 @@ class BST
       node = nil
       return temp
     end
-      
+
     suc_parent = node
     succ = node.right
-      
+
     while succ.left != nil
       suc_parent = succ
       succ = succ.left
     end
-      
+
     if suc_parent != root
       suc_parent.left = succ.right
     else
@@ -110,10 +110,10 @@ class BST
     node.data = succ.data  
     return node
   end
-  
+
   def print_paths(node)
-   path = []
-   printpaths_rec(node, path, 0)
+    path = []
+    printpaths_rec(node, path, 0)
   end
 
   def printpaths_rec(root, path, pathLen)
@@ -125,7 +125,7 @@ class BST
     else
       path.append(root.data)
     end
-    
+
     pathLen = pathLen + 1
     if root.left == nil and root.right == nil
       printArray(path, pathLen)
@@ -163,11 +163,11 @@ def main()
     tree.root = tree.insert(tree.root, file_data.shift().to_i)
     for i in file_data do
       val = i.to_i
-        if tree.search(tree.root, val) == false
-          tree.values.append(val)  
-          tree.insert(tree.root, val)
-        end
+      if tree.search(tree.root, val) == false
+        tree.values.append(val)  
+        tree.insert(tree.root, val)
       end
+    end
   else
 
     puts "Enter root value"
@@ -180,7 +180,7 @@ def main()
   puts "Enter 5 to search for an element"
   puts "Enter 6 to delete an element"
   puts "Enter 7 to print paths from root to leaves"
-  
+
   while true
     input = gets.to_i
     if input == 0
@@ -223,7 +223,7 @@ def main()
       puts "updated tree: "
       tree.print_inorder(tree.root)
     end
-    
+
     if input == 7
       tree.print_paths(tree.root)
     end
