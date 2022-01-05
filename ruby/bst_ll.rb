@@ -137,7 +137,7 @@ class BST
       succ = succ.left
     end
 
-    if suc_parent != root
+    if suc_parent != node
       suc_parent.left = succ.right
     else
       suc_parent.right = succ.right
