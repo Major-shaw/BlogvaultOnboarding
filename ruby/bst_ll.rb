@@ -163,14 +163,14 @@ class BST
 
     pathLen = pathLen + 1
     if root.left == nil and root.right == nil
-      printArray(path, pathLen)
+      print_array(path, pathLen)
     else
       printpaths_rec(root.left, path, pathLen)
       printpaths_rec(root.right, path, pathLen)
     end
   end
 
-  def printArray(ints, len)
+  def print_array(ints, len)
     for i in 0...len do
       print(ints[i], " ")
     end
@@ -236,14 +236,14 @@ class LinkedList
     node = self.head
 
     if node == nil
-      self.printlist()
+      self.print_list()
       return nil
     end
     if node.data == val
       self.head = node.next
       node = nil
       puts "updated list: "
-      self.printlist()
+      self.print_list()
     end
 
     while node != nil
@@ -261,7 +261,7 @@ class LinkedList
     prev.next = node.next
     node = nil
     puts "updated list: "
-    self.printlist()
+    self.print_list()
   end
 
   def search(val)
@@ -275,7 +275,7 @@ class LinkedList
     return false
   end
 
-  def printlist()
+  def print_list()
     node = self.head
     if node == nil
       put "Empty List"
@@ -441,12 +441,12 @@ def linkedList_interface()
         list.add(val)
       end
       puts "Printing list: "
-      list.printlist()
+      list.print_list()
       next
     end
 
     if input == '2'
-      list.printlist()
+      list.print_list()
       next
     end
 
@@ -467,7 +467,7 @@ def linkedList_interface()
     if input == '5'
       list.reverse()
       puts "reversed list: "
-      list.printlist()
+      list.print_list()
       next
     end
 
