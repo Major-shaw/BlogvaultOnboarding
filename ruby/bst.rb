@@ -239,7 +239,7 @@ def main()
   puts "Enter quit to exit"
   puts "========================================================"
 
-  while true
+  loop do
     print ">> "
     input = gets.chomp
     if input == 'quit'
