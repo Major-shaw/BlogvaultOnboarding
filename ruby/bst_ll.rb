@@ -337,7 +337,7 @@ def tree_interface()
   puts "Enter quit to exit"
   puts "========================================================"
 
-  while true
+  loop do
     print ">> "
     input = gets.chomp
     if input == 'quit'
@@ -427,7 +427,7 @@ def linkedList_interface()
   puts "Enter 5 to reverse an element"
   puts "Enter quit to exit"
 
-  while true
+  loop do
     print ">> "
     input = gets.chomp
     if input == '1'
@@ -480,7 +480,7 @@ def linkedList_interface()
 end
 
 def main()
-  while true
+  loop do
     puts "Enter 1 to work on BST"
     puts "Enter 2 to work on Linked List"
     puts "Enter quit to exit"
