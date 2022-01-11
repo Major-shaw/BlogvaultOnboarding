@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  root 'articles#index'
+  root 'home#index'
 
-  #get "/articles", to: "articles#index"
-  #get "/articles/:id", to: "articles#show"
-
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   resources :articles do
     resources :comments
   end
+
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as:'logout'
 
 end
