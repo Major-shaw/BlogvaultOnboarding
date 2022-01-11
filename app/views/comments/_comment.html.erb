@@ -1,4 +1,4 @@
-<% unless comment.archived? %>
+<% unless comment.private? %>
   <p>
     <strong>Commenter:</strong>
     <%= comment.user.email %><br>
