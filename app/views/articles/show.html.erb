@@ -3,7 +3,7 @@
 <h3> Author: <%= @article.user.email%> </h3>
 
 <ul>
-  <% if current_user.id == @article.user_id %>
+  <% if current_user and current_user.id == @article.user_id %>
     <li><%= link_to "Edit", edit_article_path(@article) %></li>
     <li><%= link_to "Destroy", article_path(@article),
                   method: :delete,
