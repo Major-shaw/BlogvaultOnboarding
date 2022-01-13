@@ -2,6 +2,8 @@
 <h1>Welcome to blogs!!</h1>
 <p>This is a blogging platform</p>
 
+<%= link_to "log in as Admin", new_admin_user_session_path %> <br>
+
 <% if current_user %>
   Logged in as <b><%= current_user.email %> </b>
   <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
@@ -11,4 +13,6 @@
   <%= link_to "Log In", new_user_session_path %>
 <% end %>
 
-<h2> <%= link_to "All Articles", articles_path %> </h2>
+<h2>
+  <%= link_to "All Articles", articles_path %>
+</h2>
